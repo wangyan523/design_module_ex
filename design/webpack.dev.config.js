@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/factory.js',
+  entry: './src/decorate.js',
   devServer: {
     contentBase: path.join(__dirname, './release'),
     open: true,
