@@ -27,8 +27,8 @@ class Container{
   }
 }
 
-let container = new Container([1,2,3,4,5])
-let iterator = container.getIterator()
-while(iterator.hasNext()) {
-  console.log(iterator.next())
-}
+// let container = new Container([1,2,3,4,5])
+// let iterator = container.getIterator()
+// while(iterator.hasNext()) {
+//   console.log(iterator.next())
+// }
