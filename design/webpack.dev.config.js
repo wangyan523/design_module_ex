@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/Iterator.js',
+  entry: './src/state.js',
   devServer: {
     contentBase: path.join(__dirname, './release'),
     open: true,
