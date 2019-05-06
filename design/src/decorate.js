@@ -57,45 +57,45 @@
 // obj.foo()
 
 //////////方法只读///////////
-// function readOnly(target, name, descriptor) {
-//   descriptor.writable = false
-//   return descriptor
-// }
-
-// class Person{
-//   constructor() {
-//     this.first = 'A'
-//     this.last = 'B'
-//   }
-//   @readOnly
-//   name() {
-//     console.log(`${this.first} + ${this.last}`); 
-//   }
-// }
-
-// let p = new Person()
-// p.name()
-// p.name = function() {
-//   alert(111)
-// }
-
-
-////////////打印日志////////////////
-function log(target, name, descriptor) {
-  let oldValue = descriptor.value
-  descriptor.value = function() {
-    console.log(`calling ${name} with`, arguments); 
-    return oldValue.apply(this, arguments)
-  }
+function readOnly(target, name, descriptor) {
+  descriptor.writable = false
   return descriptor
 }
 
-class Math{
-  @log
-  add(a,b) {
-    return a+b
+class Person{
+  constructor() {
+    this.first = 'A'
+    this.last = 'B'
+  }
+  @readOnly
+  name() {
+    console.log(`${this.first} + ${this.last}`); 
   }
 }
-let l = new Math()
-const result = l.add(1,4)
-console.log(result);
+
+let p = new Person()
+p.name()
+p.name = function() {
+  alert(111)
+}
+
+
+////////////打印日志////////////////
+// function log(target, name, descriptor) {
+//   let oldValue = descriptor.value
+//   descriptor.value = function() {
+//     console.log(`calling ${name} with`, arguments); 
+//     return oldValue.apply(this, arguments)
+//   }
+//   return descriptor
+// }
+
+// class Math{
+//   @log
+//   add(a,b) {
+//     return a+b
+//   }
+// }
+// let l = new Math()
+// const result = l.add(1,4)
+// console.log(result);

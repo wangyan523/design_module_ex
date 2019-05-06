@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/state.js',
+  entry: './src/command.js',
   devServer: {
     contentBase: path.join(__dirname, './release'),
     open: true,
